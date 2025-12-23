@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How it Works? - Docify</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0,0">
+
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #000000;
+      background: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 60px 24px 80px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin: 60px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
+    .spacer {
+      height: 80px;
+    }
+
+    /* Header with logo */
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .app-logo-link {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .app-logo {
+      width: 100px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    /* Primary links - bold on hover */
+    a {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000000;
+      transition: font-weight 0.1s ease;
+    }
+
+    a:hover {
+      font-weight: 700;
+    }
+
+    /* Secondary links - opacity on hover */
+    a.secondary {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000000;
+    }
+
+    a.secondary:hover {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li:before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+
+    footer {
+      margin-top: 120px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    footer a {
+      margin-right: 16px;
+    }
+
+    /* ========== Modal Preview - Updated to match current Docify UI ========== */
+    :root{
+      --space-xs: 3px;
+      --space-sm: 6px;
+      --space-md: 10px;
+      --space-lg: 14px;
+      --space-xl: 18px;
+      --space-2xl: 24px;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+
+      --color-bg: #ffffff;
+      --color-bg-secondary: #fafafa;
+      --color-bg-tertiary: #f5f5f5;
+
+      --color-border: #e5e5e5;
+      --color-border-light: #eeeeee;
+      --color-border-dark: #d0d0d0;
+
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #666666;
+      --color-text-tertiary: #999999;
+      --color-text-inverse: #ffffff;
+
+      --color-primary: #1a1a1a;
+      --color-primary-hover: #000000;
+
+      --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 6px rgba(0,0,0,0.06);
+
+      --accent: #007AFF;
+      --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .material-symbols-rounded{
+      font-family: "Material Symbols Rounded";
+      font-weight: normal;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+      text-transform: none;
+      letter-spacing: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-feature-settings: "liga";
+      font-feature-settings: "liga";
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .modal-preview{
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: var(--color-bg);
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
+      margin: 24px 0;
+      max-width: 500px;
+    }
+
+    .modal-preview-header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-lg) var(--space-xl);
+      border-bottom: none;
+      background: var(--color-bg);
+    }
+
+    .modal-preview-title{
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .modal-preview-title .material-symbols-rounded{
+      font-size: 18px;
+      color: var(--color-text-secondary);
+    }
+
+    .modal-preview-body{
+      padding: var(--space-xl);
+      max-height: 560px;
+      overflow-y: auto;
+    }
+
+    .ui-element{
+      margin-bottom: var(--space-lg);
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      font-size: 13px;
+    }
+
+    .ui-label{
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      letter-spacing: 0.01em;
+    }
+
+    .ui-input{
+      width: 100%;
+      padding: var(--space-md);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      font-size: 12px;
+      color: var(--color-text-primary);
+      font-family: inherit;
+      transition: all var(--transition-base);
+    }
+
+    .ui-input:hover{
+      border-color: var(--color-border-dark);
+    }
+
+    .ui-button{
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      margin-right: var(--space-sm);
+      margin-top: var(--space-sm);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .ui-button:hover{
+      background: var(--color-bg-secondary);
+      border-color: var(--color-border-dark);
+    }
+
+    .ui-button.primary{
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-color: var(--color-primary);
+    }
+
+    .ui-button.primary:hover{
+      background: var(--color-primary-hover);
+    }
+
+    .ui-button .material-symbols-rounded{ 
+      font-size: 16px; 
+    }
+
+    .notif-badge{
+      display: inline-flex;
+      align-items: flex-start;
+      gap: var(--space-xs);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      color: var(--color-text-tertiary);
+      font-size: 11px;
+      margin-top: var(--space-xs);
+      line-height: 1.5;
+    }
+
+    .notif-badge .material-symbols-rounded{ 
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .table-preview{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: var(--space-sm);
+    }
+
+    .table-preview th,
+    .table-preview td{
+      padding: var(--space-md);
+      text-align: left;
+      border: none;
+    }
+
+    .table-preview thead{
+      background: var(--color-bg);
+      position: sticky;
+      top: 0;
+    }
+
+    .table-preview th{
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .table-preview td{
+      background: transparent;
+      color: var(--color-text-primary);
+    }
+
+    .table-preview tbody tr{
+      cursor: pointer;
+      transition: background 120ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .table-preview tbody tr:hover{
+      background: var(--color-bg-secondary);
+    }
+
+    .table-preview input[type="checkbox"]{
+      width: 16px;
+      height: 16px;
+      accent-color: var(--color-primary);
+      cursor: pointer;
+    }
+
+    .kanban-card{
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      background: var(--color-bg);
+      margin-bottom: var(--space-sm);
+    }
+
+    .kanban-card-header{
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+      color: var(--color-text-primary);
+    }
+
+    .kanban-card-field{
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      font-size: 12px;
+      border-top: 1px solid var(--color-bg-tertiary);
+    }
+
+    .kanban-card-field:first-of-type{ 
+      border-top: none; 
+    }
+
+    .kanban-card-label{ 
+      color: var(--color-text-tertiary); 
+      font-weight: 500; 
+    }
+
+    .kanban-card-value{ 
+      color: var(--color-text-primary); 
+    }
+
+    .update-banner-preview{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      max-width: 500px;
+    }
+
+    .update-banner-content-preview{
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 12px;
+      color: var(--color-text-primary);
+    }
+
+    .update-banner-content-preview .material-symbols-rounded{
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .update-banner-actions-preview{
+      display: flex;
+      gap: var(--space-xs);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-branding">
+      <a href="https://www.yugal.one/docify" class="app-logo-link">
+        <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Docify.svg" alt="Docify Logo" class="app-logo">
+      </a>
+      <div class="title">Docify</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HOW IT WORKS - MINIMALIST ========== -->
+    <h2 id="how-it-works">How it Works?</h2>
+
+    <h3>1. Manage Workflows</h3>
+    <p>
+      Save complete workflow configurations for future use. Load previously saved workflows instantly, share them with team members, or delete workflows you no longer need. Workflow management is restricted to the owner, ensuring controlled access.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">account_tree</span>
+          Workflows
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="ui-element">
+          <div class="ui-label">Saved Workflows</div>
+          <div class="ui-input">Select a workflow</div>
+        </div>
+        <div>
+          <button class="ui-button primary"><span class="material-symbols-rounded">download</span>Load Workflow</button>
+          <button class="ui-button"><span class="material-symbols-rounded">save</span>Save Workflow</button>
+          <button class="ui-button"><span class="material-symbols-rounded">share</span>Share Workflow</button>
+          <button class="ui-button"><span class="material-symbols-rounded">delete</span>Delete Workflow</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>2. Team Collaboration</h3>
+    <p>
+      Share workflows with team members by email. Shared users can load workflows but cannot modify them, maintaining integrity while enabling collaboration. Receive notifications when the owner updates a shared workflow, and refresh to get the latest version.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">share</span>
+          Share Workflow
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="ui-element">
+          <div class="ui-label">Workflow Name</div>
+          <div class="ui-input">Invoice Generation - 2024</div>
+        </div>
+        <div class="ui-element">
+          <div class="ui-label">Share with</div>
+          <textarea class="ui-input" rows="3" placeholder="Enter email IDs, one per line or comma-separated" style="resize: vertical;"></textarea>
+          <div class="notif-badge">
+            <span class="material-symbols-rounded">info</span>
+            Shared users can load but cannot modify workflows
+          </div>
+        </div>
+        <div class="ui-element">
+          <div class="ui-label">Shared With</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary);">
+            john@company.com<br>
+            sarah@company.com
+          </div>
+        </div>
+        <div>
+          <button class="ui-button primary"><span class="material-symbols-rounded">share</span>Share Workflow</button>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 40px; margin-bottom: 16px; font-size: 14px; color: var(--color-text-secondary);">
+      When a workflow owner makes updates, shared users see this notification banner:
+    </p>
+
+    <div class="update-banner-preview" style="margin: 24px 0;">
+      <div class="update-banner-content-preview">
+        <span class="material-symbols-rounded">info</span>
+        <span>Workflow has been updated by owner@email.com.</span>
+      </div>
+      <div class="update-banner-actions-preview">
+        <button class="ui-button primary" style="margin:0;">
+          <span class="material-symbols-rounded">refresh</span>
+          Refresh
+        </button>
+        <button class="ui-button" style="margin:0; padding: var(--space-xs);">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+    </div>
+
+    <h3>3. Select Data Source</h3>
+    <p>
+      Connect to Google Sheets using the Drive picker. Browse and select your data source, then load and parse records from the sheet. Open the source in a new tab to verify data, or clean blanks and duplicates before processing.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">database</span>
+          Data Source
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="ui-element">
+          <div class="ui-label">Google Sheets File</div>
+          <button class="ui-input" style="cursor:pointer; text-align:left; display:flex; align-items:center; gap:8px;">
+            <span class="material-symbols-rounded" style="font-size:14px;">add_to_drive</span>
+            Select from Drive
+          </button>
+        </div>
+        <div class="ui-element">
+          <div class="ui-label">Sheet Name</div>
+          <div class="ui-input">Customer Data 2024</div>
+        </div>
+        <div>
+          <button class="ui-button primary"><span class="material-symbols-rounded">upload</span>Load Data</button>
+          <button class="ui-button"><span class="material-symbols-rounded">open_in_new</span>View Data Source</button>
+          <button class="ui-button"><span class="material-symbols-rounded">auto_fix</span>Clean Data</button>
+          <button class="ui-button"><span class="material-symbols-rounded">checklist</span>Select Records</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>4. Clean Data</h3>
+    <p>
+      Ensure data quality before processing by removing completely blank rows and columns. Detect and remove duplicate rows while keeping the first occurrence. Receive feedback on cleaned record counts to confirm data integrity.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">auto_fix</span>
+          Clean Data
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="ui-element">
+          <label style="display:flex; align-items:center; gap:8px; font-size:12px;">
+            <input type="checkbox" checked>
+            Remove blank rows from the sheet
+          </label>
+        </div>
+        <div class="ui-element">
+          <label style="display:flex; align-items:center; gap:8px; font-size:12px;">
+            <input type="checkbox" checked>
+            Remove blank columns from the sheet
+          </label>
+        </div>
+        <div class="ui-element">
+          <label style="display:flex; align-items:center; gap:8px; font-size:12px;">
+            <input type="checkbox" checked>
+            Remove duplicate rows (keep first occurrence)
+          </label>
+        </div>
+        <div>
+          <button class="ui-button primary"><span class="material-symbols-rounded">auto_fix</span>Clean Data</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>5. Select Records</h3>
+    <p>
+      Choose specific records to process using an interactive table. Use unified search across all records, apply smart bulk selection patterns, and copy placeholders for template mapping. Select exactly the records you need to generate.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">checklist</span>
+          Select Records
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="ui-element">
+          <input type="text" class="ui-input" placeholder="🔍 Search records..." />
+          <div style="margin-top: 8px; font-size: 11px; color: var(--color-text-secondary);">
+            Selected: 2 of 150 records
+          </div>
+        </div>
+
+        <table class="table-preview">
+          <thead>
+            <tr>
+              <th><input type="checkbox"></th>
+              <th>Row</th>
+              <th>Customer Name</th>
+              <th>Email ID</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" checked></td>
+              <td>2</td>
+              <td>John Smith</td>
+              <td>john@example.com</td>
+              <td>$1,250</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" checked></td>
+              <td>3</td>
+              <td>Sarah Johnson</td>
+              <td>sarah@example.com</td>
+              <td>$2,100</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>4</td>
+              <td>Mike Davis</td>
+              <td>mike@example.com</td>
+              <td>$890</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 12px;">
+          <button class="ui-button"><span class="material-symbols-rounded">clear_all</span>Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>6. Record Detail View</h3>
+    <p>
+      Open any row to see a complete record in a clean, card-style layout. Navigate record-by-record using intuitive controls, preview all fields at a glance, and quickly drill down from the table view for detailed inspection.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">visibility</span>
+          Record Details
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <span style="font-size: 11px; color: var(--color-text-secondary);">Record 2 of 150</span>
+          <div>
+            <button class="ui-button"><span class="material-symbols-rounded">chevron_left</span></button>
+            <button class="ui-button"><span class="material-symbols-rounded">chevron_right</span></button>
+          </div>
+        </div>
+
+        <div class="kanban-card">
+          <div class="kanban-card-header">John Smith</div>
+          <div class="kanban-card-field"><span class="kanban-card-label">Email ID</span><span class="kanban-card-value">john@example.com</span></div>
+          <div class="kanban-card-field"><span class="kanban-card-label">Phone No</span><span class="kanban-card-value">+1 555 123-4567</span></div>
+          <div class="kanban-card-field"><span class="kanban-card-label">Amount</span><span class="kanban-card-value">$1,250.00</span></div>
+          <div class="kanban-card-field"><span class="kanban-card-label">Status</span><span class="kanban-card-value">Active</span></div>
+          <div class="kanban-card-field"><span class="kanban-card-label">Date</span><span class="kanban-card-value">Dec 15, 2024</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>7. Document Settings</h3>
+    <p>
+      Configure your document generation by selecting a Docs template from Drive. Define file naming patterns using dynamic placeholders that map to your data fields. Choose output format&mdash;Google Docs, PDF, or both&mdash;and decide between individual files or consolidated output. Log IDs are automatically appended for tracking.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">description</span>
+          Document Settings
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="ui-element">
+          <div class="ui-label">Documentation Name</div>
+          <div class="ui-input">Invoice Batch 2024</div>
+        </div>
+        <div class="ui-element">
+          <div class="ui-label">Google Docs Template</div>
+          <button class="ui-input" style="cursor:pointer; text-align:left; display:flex; align-items:center; gap:8px;">
+            <span class="material-symbols-rounded" style="font-size:14px;">add_to_drive</span>
+            Invoice Template v2.docx
+          </button>
+        </div>
+        <div class="ui-element">
+          <div class="ui-label">File Name Format</div>
+          <div class="ui-input">Invoice - &lt;&lt;Name&gt;&gt; - &lt;&lt;Date&gt;&gt;</div>
+          <div class="notif-badge">
+            <span class="material-symbols-rounded">info</span>
+            Use &lt;&lt;FieldName&gt;&gt; placeholders. Log ID is appended automatically.
+          </div>
+        </div>
+        <div class="ui-element">
+          <div class="ui-label">File Format</div>
+          <label style="display:flex; align-items:center; gap:8px; font-size: 11px; margin-bottom: 4px;">
+            <input type="radio" name="format">
+            Google Docs
+          </label>
+          <label style="display:flex; align-items:center; gap:8px; font-size: 11px; margin-bottom: 4px;">
+            <input type="radio" name="format" checked>
+            Docs + PDF
+          </label>
+          <label style="display:flex; align-items:center; gap:8px; font-size: 11px;">
+            <input type="radio" name="format">
+            PDF
+          </label>
+        </div>
+
+        <div>
+          <button class="ui-button primary"><span class="material-symbols-rounded">edit_document</span>Create Documents</button>
+          <button class="ui-button"><span class="material-symbols-rounded">open_in_new</span>View Template</button>
+          <button class="ui-button"><span class="material-symbols-rounded">folder_open</span>View Documentation</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>8. Generate and Organize</h3>
+    <p>
+      Process selected records with batch generation and progress tracking. Documentation folders are automatically created by name, and each file receives a unique Log ID for traceability. Clear success feedback confirms completion, and you can immediately open the output folder to access generated documents.
+    </p>
+
+    <div class="modal-preview">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <span class="material-symbols-rounded">folder</span>
+          Documentation
+        </div>
+      </div>
+      <div class="modal-preview-body">
+        <div class="kanban-card">
+          <div style="padding-left: 12px; margin-top: 8px; font-size: 11px; color: var(--color-text-secondary);">
+            2025-12-05 - Invoice - John Smith.pdf<br>
+            2025-12 - Payroll Slip - Mike Davis.pdf<br>
+            Gift Deed - Sarah Johnson.gdoc<br>
+            Gift Deed - Sarah Johnson.pdf<br>
+            Health Certificates.pdf
+          </div>
+        </div>
+        <div style="margin-top: 12px;">
+          <button class="ui-button primary"><span class="material-symbols-rounded">folder_open</span>Open Documentation</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+  </main>
+
+  <footer>
+    <a href="https://www.yugal.one" class="secondary">yugal.one</a>
+    <a href="https://www.yugal.one/support" class="secondary" target="_blank" rel="noopener">Support</a>    
+    <a href="https://docs.google.com/document/d/1230FVosXVRG5b9chDaRqCXdjw5-Bp4z3LVOobeQ0JbI/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://docs.google.com/document/d/1FoKM3bYiE69-NXQnSjxdrma7dIQhUUqCyIKbtcYahw0/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">Terms of Service</a>
+
+    <div class="spacer"></div>
+  </footer>
+</body>
+</html>

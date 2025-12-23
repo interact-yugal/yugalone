@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collab</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #000000;
+      background: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 60px 24px 80px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin: 60px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
+    .spacer {
+      height: 80px;
+    }
+
+    /* Header with logo */
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .app-logo-link {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .app-logo {
+      width: 100px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    /* Primary links - bold on hover */
+    a {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000000;
+      transition: font-weight 0.1s ease;
+    }
+
+    a:hover {
+      font-weight: 700;
+    }
+
+    /* Secondary links - opacity on hover */
+    a.secondary {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000000;
+    }
+
+    a.secondary:hover {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li:before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+
+    footer {
+      margin-top: 120px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    footer a {
+      margin-right: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-branding">
+      <a href="https://www.yugal.one/collab" class="app-logo-link">
+        <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Collab.svg" alt="Collab Logo" class="app-logo">
+      </a>
+      <div class="title">Collab</div>
+    </div>
+    <div class="subtitle"></div>
+  </header>
+
+  <main>
+    <p>
+      Experience across finance, accounting, and auditing surfaced a recurring pattern: teams needed dependable workflow automation, but tools were either too rigid or too complex to implement. That gap led to building Collab&mdash;a system at the intersection of finance, operations, and design that turns real business logic into scalable, no-code workflows.
+    </p>
+
+    <p>
+      The problem is fundamental: organizations run on interconnected workflows, but most tools force teams into fragmented systems. Instead of juggling separate applications for contacts, inventory, production, accounting, and documentation, Collab unifies everything in one place&mdash;where data, processes, and teams operate seamlessly, and each workflow flows naturally into the next.
+    </p>
+
+    <p>
+      Built on a multi-tenant architecture, each organization gets its own isolated environment with centralized governance where it matters. System and public servers maintain common logic and controlled collaboration, while client servers handle operational workloads with strict data partitioning. Layered security&mdash;combining authentication, license-based permissions, and hybrid server design&mdash;ensures every action is authorized, auditable, and role-aligned.
+    </p>
+
+    <p>
+      The result: enterprise-grade structure without traditional development overhead. Powered by relational modeling, automated workflows, and standardized design patterns, Collab lets organizations deploy quickly, scale cleanly, and maintain operational integrity&mdash;staying practical as they grow, without sacrificing the flexibility to evolve.
+    </p>    
+    
+    <div class="spacer"></div>
+
+    <p>
+      <a href="https://www.appsheet.com/newshortcut/bf93ddae-3058-4d7c-acee-fd0df4ad7178" target="_blank" rel="noopener">Explore Collab</a> &middot; 
+      <a href="https://drive.google.com/file/d/16mXxy7QVplKCfs21-Ea8IuyFg4xsMumz/view?usp=drive_link" class="secondary" target="_blank" rel="noopener">Hear the Podcast</a> &middot; 
+      <a href="https://docs.google.com/document/d/1cQCoJSOLtqBrQV1VKXBtCzZl-uBbQOXwUK45vlxbEdI/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">View Documentation</a>
+    </p>
+
+    <div class="spacer"></div>
+
+    <h2>Operational Modules</h2>
+    <ul>
+      <li>Centralized contacts: Keep customers, vendors, and internal stakeholders in one controlled source of truth.</li>
+      <li>Inventory system: Track items, movements, and availability without splitting data across disconnected apps.</li>
+      <li>Manufacturing: Support production workflows that depend on real-time inventory and documented processes.</li>
+      <li>Accounting: Connect accounting outputs with operational inputs so finance reflects operational reality.</li>
+      <li>Documentation: Run document-centric processes as first-class workflows, not manual afterthoughts.</li>
+      <li>Workflow automation: Standardize repeatable operations with structured logic and controlled execution paths.</li>
+    </ul>
+
+    <div class="spacer"></div>
+
+    <p>
+      Deploy quickly, scale cleanly, and keep operational integrity&mdash;without traditional development overhead. Designed for connected workflows across teams and functions.
+    </p>
+  </main>
+
+  <footer>
+    <a href="https://www.yugal.one" class="secondary">yugal.one</a>
+    <a href="https://www.yugal.one/support" class="secondary" target="_blank" rel="noopener">Support</a>    
+    <a href="https://www.appsheet.com/appinfo/privacypolicy?appId=bf93ddae-3058-4d7c-acee-fd0df4ad7178" class="secondary" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://www.appsheet.com/appinfo/termsofuse?appId=bf93ddae-3058-4d7c-acee-fd0df4ad7178" class="secondary" target="_blank" rel="noopener">Terms of Service</a>
+    <a href="https://www.appsheet.com/oss/notices" class="secondary" target="_blank" rel="noopener">Licenses</a>
+
+    <div class="spacer"></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docify</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #000000;
+      background: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 60px 24px 80px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin: 60px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
+    .spacer {
+      height: 80px;
+    }
+
+    /* Header with logo */
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .app-logo-link {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .app-logo {
+      width: 100px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    /* Primary links - bold on hover */
+    a {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000000;
+      transition: font-weight 0.1s ease;
+    }
+
+    a:hover {
+      font-weight: 700;
+    }
+
+    /* Secondary links - opacity on hover */
+    a.secondary {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: 1px solid #000000;
+    }
+
+    a.secondary:hover {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li:before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+
+    footer {
+      margin-top: 120px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    footer a {
+      margin-right: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-branding">
+      <a href="https://www.yugal.one/docify" class="app-logo-link">
+        <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Docify.svg" alt="Docify Logo" class="app-logo">
+      </a>
+      <div class="title">Docify</div>
+    </div>
+    <div class="subtitle"></div>
+  </header>
+
+  <main>
+    <p>
+      Docify transforms Google Sheets and Docs templates into consistent outputs with workflow management, team collaboration, and batch generation capabilities.
+    </p>
+
+    <p>
+      Connect your data source, selection logic, and a Docs template into a repeatable workflow. Save workflows, share with your team, and map placeholders to fields consistently&mdash;all within Google Workspace.
+    </p>
+
+    <div class="spacer"></div>
+
+    <p>
+      <a href="https://www.yugal.one/docify/app" target="_blank" rel="noopener">Start Free</a> &middot; 
+      <a href="https://www.yugal.one/docify/how-it-works" class="secondary">How it Works?</a>
+    </p>
+
+    <div class="spacer"></div>
+
+    <h2>Core Capabilities</h2>
+    <ul>
+      <li>Workflow collaboration: Share workflows with controlled permissions and update notifications.</li>
+      <li>Unified data source: Load Google Sheets and clean data automatically before processing.</li>
+      <li>Data cleaning: Remove blanks and duplicates before generation to ensure data quality.</li>
+      <li>Smart selection: Choose exactly what to generate using an interactive table with built-in search, filters, and bulk selection capabilities.</li>
+      <li>Template mapping: Use consistent placeholders to keep outputs clean and predictable.</li>
+      <li>Flexible output: Create Docs, PDFs, or both&mdash;organized in Drive with traceable Log IDs.</li>
+      <li>Batch processing: Generate multiple documents with progress tracking and success feedback.</li>
+    </ul>
+
+    <div class="spacer"></div>
+
+    <p>
+      Deploy quickly, scale cleanly, and keep document generation consistent&mdash;without traditional development overhead. Designed for teams that need reliable, repeatable automation workflows.
+    </p>
+  </main>
+
+  <footer>
+    <a href="https://www.yugal.one" class="secondary">yugal.one</a>
+    <a href="https://www.yugal.one/support" class="secondary" target="_blank" rel="noopener">Support</a>    
+    <a href="https://docs.google.com/document/d/1230FVosXVRG5b9chDaRqCXdjw5-Bp4z3LVOobeQ0JbI/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://docs.google.com/document/d/1FoKM3bYiE69-NXQnSjxdrma7dIQhUUqCyIKbtcYahw0/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">Terms of Service</a>
+
+    <div class="spacer"></div>
+  </footer>
+</body>
+</html>
