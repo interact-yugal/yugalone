@@ -5,27 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How it Works? - Docify</title>
 
-  <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Material Symbols Rounded -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,500,0,0">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <style>
+    /* Lenis Smooth Scroll Essential CSS */
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
     * { 
       box-sizing: border-box; 
       margin: 0; 
       padding: 0; 
     }
 
-    html { 
-      scroll-behavior: smooth; 
-    }
+    /* scroll-behavior: smooth removed to prevent conflict with Lenis */
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -55,6 +64,12 @@
       letter-spacing: -0.01em;
     }
 
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 40px 0 16px;
+    }
+
     p {
       font-size: 16px;
       font-weight: 400;
@@ -66,12 +81,6 @@
       font-size: 28px;
       font-weight: 800;
       margin: 0;
-    }
-
-    .subtitle {
-      font-size: 16px;
-      font-weight: 400;
-      margin-bottom: 48px;
     }
 
     .spacer {
@@ -123,26 +132,6 @@
       font-weight: 400;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0;
-    }
-
-    li {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 12px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    li:before {
-      content: "-";
-      position: absolute;
-      left: 0;
-    }
-
     footer {
       margin-top: 120px;
       font-size: 14px;
@@ -153,7 +142,7 @@
       margin-right: 16px;
     }
 
-    /* ========== Modal Preview - Updated to match current Docify UI ========== */
+    /* ========== Modal Preview Styles ========== */
     :root{
       --space-xs: 3px;
       --space-sm: 6px;
@@ -249,10 +238,6 @@
 
     .ui-element{
       margin-bottom: var(--space-lg);
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      background: transparent;
       font-size: 13px;
     }
 
@@ -276,10 +261,6 @@
       transition: all var(--transition-base);
     }
 
-    .ui-input:hover{
-      border-color: var(--color-border-dark);
-    }
-
     .ui-button{
       display: inline-flex;
       align-items: center;
@@ -298,42 +279,10 @@
       transition: all var(--transition-base);
     }
 
-    .ui-button:hover{
-      background: var(--color-bg-secondary);
-      border-color: var(--color-border-dark);
-    }
-
     .ui-button.primary{
       background: var(--color-primary);
       color: var(--color-text-inverse);
       border-color: var(--color-primary);
-    }
-
-    .ui-button.primary:hover{
-      background: var(--color-primary-hover);
-    }
-
-    .ui-button .material-symbols-rounded{ 
-      font-size: 16px; 
-    }
-
-    .notif-badge{
-      display: inline-flex;
-      align-items: flex-start;
-      gap: var(--space-xs);
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      border: none;
-      color: var(--color-text-tertiary);
-      font-size: 11px;
-      margin-top: var(--space-xs);
-      line-height: 1.5;
-    }
-
-    .notif-badge .material-symbols-rounded{ 
-      font-size: 12px;
-      flex-shrink: 0;
     }
 
     .table-preview{
@@ -347,42 +296,12 @@
     .table-preview td{
       padding: var(--space-md);
       text-align: left;
-      border: none;
-    }
-
-    .table-preview thead{
-      background: var(--color-bg);
-      position: sticky;
-      top: 0;
     }
 
     .table-preview th{
       font-weight: 600;
-      font-size: 11px;
       color: var(--color-text-secondary);
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-    }
-
-    .table-preview td{
-      background: transparent;
-      color: var(--color-text-primary);
-    }
-
-    .table-preview tbody tr{
-      cursor: pointer;
-      transition: background 120ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .table-preview tbody tr:hover{
-      background: var(--color-bg-secondary);
-    }
-
-    .table-preview input[type="checkbox"]{
-      width: 16px;
-      height: 16px;
-      accent-color: var(--color-primary);
-      cursor: pointer;
+      font-size: 11px;
     }
 
     .kanban-card{
@@ -408,19 +327,6 @@
       border-top: 1px solid var(--color-bg-tertiary);
     }
 
-    .kanban-card-field:first-of-type{ 
-      border-top: none; 
-    }
-
-    .kanban-card-label{ 
-      color: var(--color-text-tertiary); 
-      font-weight: 500; 
-    }
-
-    .kanban-card-value{ 
-      color: var(--color-text-primary); 
-    }
-
     .update-banner-preview{
       display: flex;
       align-items: center;
@@ -434,23 +340,13 @@
       max-width: 500px;
     }
 
-    .update-banner-content-preview{
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      font-size: 12px;
-      color: var(--color-text-primary);
-    }
-
-    .update-banner-content-preview .material-symbols-rounded{
-      color: var(--accent);
-      font-size: 16px;
-    }
-
-    .update-banner-actions-preview{
-      display: flex;
+    .notif-badge{
+      display: inline-flex;
+      align-items: flex-start;
       gap: var(--space-xs);
-      flex-shrink: 0;
+      color: var(--color-text-tertiary);
+      font-size: 11px;
+      margin-top: var(--space-xs);
     }
   </style>
 </head>
@@ -466,7 +362,6 @@
   </header>
 
   <main>
-    <!-- ========== HOW IT WORKS - MINIMALIST ========== -->
     <h2 id="how-it-works">How it Works?</h2>
 
     <h3>1. Manage Workflows</h3>
@@ -538,8 +433,8 @@
     </p>
 
     <div class="update-banner-preview" style="margin: 24px 0;">
-      <div class="update-banner-content-preview">
-        <span class="material-symbols-rounded">info</span>
+      <div class="update-banner-content-preview" style="display: flex; align-items: center; gap: 10px; font-size: 12px;">
+        <span class="material-symbols-rounded" style="color: var(--accent);">info</span>
         <span>Workflow has been updated by owner@email.com.</span>
       </div>
       <div class="update-banner-actions-preview">
@@ -547,15 +442,12 @@
           <span class="material-symbols-rounded">refresh</span>
           Refresh
         </button>
-        <button class="ui-button" style="margin:0; padding: var(--space-xs);">
-          <span class="material-symbols-rounded">close</span>
-        </button>
       </div>
     </div>
 
     <h3>3. Select Data Source</h3>
     <p>
-      Connect to Google Sheets using the Drive picker. Browse and select your data source, then load and parse records from the sheet. Open the source in a new tab to verify data, or clean blanks and duplicates before processing.
+      Connect to Google Sheets using the Drive picker. Browse and select your data source, then load and parse records from the sheet.
     </p>
 
     <div class="modal-preview">
@@ -579,53 +471,18 @@
         </div>
         <div>
           <button class="ui-button primary"><span class="material-symbols-rounded">upload</span>Load Data</button>
-          <button class="ui-button"><span class="material-symbols-rounded">open_in_new</span>View Data Source</button>
-          <button class="ui-button"><span class="material-symbols-rounded">auto_fix</span>Clean Data</button>
-          <button class="ui-button"><span class="material-symbols-rounded">checklist</span>Select Records</button>
         </div>
       </div>
     </div>
 
     <h3>4. Clean Data</h3>
     <p>
-      Ensure data quality before processing by removing completely blank rows and columns. Detect and remove duplicate rows while keeping the first occurrence. Receive feedback on cleaned record counts to confirm data integrity.
+      Ensure data quality before processing by removing completely blank rows and columns. Detect and remove duplicate rows while keeping the first occurrence.
     </p>
-
-    <div class="modal-preview">
-      <div class="modal-preview-header">
-        <div class="modal-preview-title">
-          <span class="material-symbols-rounded">auto_fix</span>
-          Clean Data
-        </div>
-      </div>
-      <div class="modal-preview-body">
-        <div class="ui-element">
-          <label style="display:flex; align-items:center; gap:8px; font-size:12px;">
-            <input type="checkbox" checked>
-            Remove blank rows from the sheet
-          </label>
-        </div>
-        <div class="ui-element">
-          <label style="display:flex; align-items:center; gap:8px; font-size:12px;">
-            <input type="checkbox" checked>
-            Remove blank columns from the sheet
-          </label>
-        </div>
-        <div class="ui-element">
-          <label style="display:flex; align-items:center; gap:8px; font-size:12px;">
-            <input type="checkbox" checked>
-            Remove duplicate rows (keep first occurrence)
-          </label>
-        </div>
-        <div>
-          <button class="ui-button primary"><span class="material-symbols-rounded">auto_fix</span>Clean Data</button>
-        </div>
-      </div>
-    </div>
 
     <h3>5. Select Records</h3>
     <p>
-      Choose specific records to process using an interactive table. Use unified search across all records, apply smart bulk selection patterns, and copy placeholders for template mapping. Select exactly the records you need to generate.
+      Choose specific records to process using an interactive table. Use unified search across all records and apply smart bulk selection patterns.
     </p>
 
     <div class="modal-preview">
@@ -638,18 +495,13 @@
       <div class="modal-preview-body">
         <div class="ui-element">
           <input type="text" class="ui-input" placeholder="🔍 Search records..." />
-          <div style="margin-top: 8px; font-size: 11px; color: var(--color-text-secondary);">
-            Selected: 2 of 150 records
-          </div>
         </div>
-
         <table class="table-preview">
           <thead>
             <tr>
               <th><input type="checkbox"></th>
               <th>Row</th>
               <th>Customer Name</th>
-              <th>Email ID</th>
               <th>Amount</th>
             </tr>
           </thead>
@@ -658,67 +510,22 @@
               <td><input type="checkbox" checked></td>
               <td>2</td>
               <td>John Smith</td>
-              <td>john@example.com</td>
               <td>$1,250</td>
             </tr>
             <tr>
               <td><input type="checkbox" checked></td>
               <td>3</td>
               <td>Sarah Johnson</td>
-              <td>sarah@example.com</td>
               <td>$2,100</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td>4</td>
-              <td>Mike Davis</td>
-              <td>mike@example.com</td>
-              <td>$890</td>
             </tr>
           </tbody>
         </table>
-
-        <div style="margin-top: 12px;">
-          <button class="ui-button"><span class="material-symbols-rounded">clear_all</span>Reset</button>
-        </div>
       </div>
     </div>
 
-    <h3>6. Record Detail View</h3>
+    <h3>6. Document Settings</h3>
     <p>
-      Open any row to see a complete record in a clean, card-style layout. Navigate record-by-record using intuitive controls, preview all fields at a glance, and quickly drill down from the table view for detailed inspection.
-    </p>
-
-    <div class="modal-preview">
-      <div class="modal-preview-header">
-        <div class="modal-preview-title">
-          <span class="material-symbols-rounded">visibility</span>
-          Record Details
-        </div>
-      </div>
-      <div class="modal-preview-body">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-          <span style="font-size: 11px; color: var(--color-text-secondary);">Record 2 of 150</span>
-          <div>
-            <button class="ui-button"><span class="material-symbols-rounded">chevron_left</span></button>
-            <button class="ui-button"><span class="material-symbols-rounded">chevron_right</span></button>
-          </div>
-        </div>
-
-        <div class="kanban-card">
-          <div class="kanban-card-header">John Smith</div>
-          <div class="kanban-card-field"><span class="kanban-card-label">Email ID</span><span class="kanban-card-value">john@example.com</span></div>
-          <div class="kanban-card-field"><span class="kanban-card-label">Phone No</span><span class="kanban-card-value">+1 555 123-4567</span></div>
-          <div class="kanban-card-field"><span class="kanban-card-label">Amount</span><span class="kanban-card-value">$1,250.00</span></div>
-          <div class="kanban-card-field"><span class="kanban-card-label">Status</span><span class="kanban-card-value">Active</span></div>
-          <div class="kanban-card-field"><span class="kanban-card-label">Date</span><span class="kanban-card-value">Dec 15, 2024</span></div>
-        </div>
-      </div>
-    </div>
-
-    <h3>7. Document Settings</h3>
-    <p>
-      Configure your document generation by selecting a Docs template from Drive. Define file naming patterns using dynamic placeholders that map to your data fields. Choose output format&mdash;Google Docs, PDF, or both&mdash;and decide between individual files or consolidated output. Log IDs are automatically appended for tracking.
+      Configure your document generation by selecting a Docs template. Define file naming patterns using dynamic placeholders. Choose output formats like PDF or Google Docs.
     </p>
 
     <div class="modal-preview">
@@ -730,51 +537,18 @@
       </div>
       <div class="modal-preview-body">
         <div class="ui-element">
-          <div class="ui-label">Documentation Name</div>
-          <div class="ui-input">Invoice Batch 2024</div>
-        </div>
-        <div class="ui-element">
-          <div class="ui-label">Google Docs Template</div>
-          <button class="ui-input" style="cursor:pointer; text-align:left; display:flex; align-items:center; gap:8px;">
-            <span class="material-symbols-rounded" style="font-size:14px;">add_to_drive</span>
-            Invoice Template v2.docx
-          </button>
-        </div>
-        <div class="ui-element">
           <div class="ui-label">File Name Format</div>
           <div class="ui-input">Invoice - &lt;&lt;Name&gt;&gt; - &lt;&lt;Date&gt;&gt;</div>
-          <div class="notif-badge">
-            <span class="material-symbols-rounded">info</span>
-            Use &lt;&lt;FieldName&gt;&gt; placeholders. Log ID is appended automatically.
-          </div>
         </div>
-        <div class="ui-element">
-          <div class="ui-label">File Format</div>
-          <label style="display:flex; align-items:center; gap:8px; font-size: 11px; margin-bottom: 4px;">
-            <input type="radio" name="format">
-            Google Docs
-          </label>
-          <label style="display:flex; align-items:center; gap:8px; font-size: 11px; margin-bottom: 4px;">
-            <input type="radio" name="format" checked>
-            Docs + PDF
-          </label>
-          <label style="display:flex; align-items:center; gap:8px; font-size: 11px;">
-            <input type="radio" name="format">
-            PDF
-          </label>
-        </div>
-
         <div>
           <button class="ui-button primary"><span class="material-symbols-rounded">edit_document</span>Create Documents</button>
-          <button class="ui-button"><span class="material-symbols-rounded">open_in_new</span>View Template</button>
-          <button class="ui-button"><span class="material-symbols-rounded">folder_open</span>View Documentation</button>
         </div>
       </div>
     </div>
 
-    <h3>8. Generate and Organize</h3>
+    <h3>7. Generate and Organize</h3>
     <p>
-      Process selected records with batch generation and progress tracking. Documentation folders are automatically created by name, and each file receives a unique Log ID for traceability. Clear success feedback confirms completion, and you can immediately open the output folder to access generated documents.
+      Process selected records with batch generation and progress tracking. Each file receives a unique Log ID for traceability.
     </p>
 
     <div class="modal-preview">
@@ -788,10 +562,7 @@
         <div class="kanban-card">
           <div style="padding-left: 12px; margin-top: 8px; font-size: 11px; color: var(--color-text-secondary);">
             2025-12-05 - Invoice - John Smith.pdf<br>
-            2025-12 - Payroll Slip - Mike Davis.pdf<br>
-            Gift Deed - Sarah Johnson.gdoc<br>
-            Gift Deed - Sarah Johnson.pdf<br>
-            Health Certificates.pdf
+            Gift Deed - Sarah Johnson.pdf
           </div>
         </div>
         <div style="margin-top: 12px;">
@@ -811,5 +582,23 @@
 
     <div class="spacer"></div>
   </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      lerp: 0.1
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
 </body>
 </html>
