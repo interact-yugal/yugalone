@@ -317,17 +317,20 @@
       align-items: center;
       justify-content: center;
       gap: var(--space-sm);
-      padding: 10px 20px;
-      font-size: var(--font-sm);
-      font-weight: var(--weight-semibold);
+      padding: 0;
+      font-size: var(--font-md);
+      font-weight: var(--weight-normal);
       font-family: inherit;
+      background: transparent;
       border: none;
-      border-radius: var(--radius-md);
+      border-bottom: 1px solid var(--color-primary);
+      border-radius: 0;
       cursor: pointer;
-      transition: all var(--transition-base);
+      transition: font-weight 0.1s ease;
       text-decoration: none;
       user-select: none;
       letter-spacing: var(--letter-spacing-normal);
+      color: var(--color-text-primary);
       margin-right: var(--space-md);
       margin-top: var(--space-lg);
     }
@@ -338,19 +341,22 @@
     }
 
     .ui-button.primary{
-      background: var(--color-primary);
-      color: var(--color-text-inverse);
+      background: transparent;
+      color: var(--color-text-primary);
+      border-bottom: 1px solid var(--color-primary);
     }
 
     .ui-button.primary:hover {
-      background: var(--color-primary-hover);
-      transform: var(--transform-lift);
+      background: transparent;
+      font-weight: var(--weight-bold);
+      transform: none;
       box-shadow: none;
     }
 
     .ui-button:not(.primary) {
       background: transparent;
       color: var(--color-text-primary);
+      border-bottom: 1px solid var(--color-primary);
       padding-left: 0;
       padding-right: 0;
       justify-content: flex-start;
@@ -358,8 +364,9 @@
 
     .ui-button:not(.primary):hover {
       background: transparent;
-      text-decoration: underline;
-      opacity: var(--opacity-hover-alt);
+      opacity: var(--opacity-hover);
+      font-weight: var(--weight-normal);
+      text-decoration: none;
     }
 
     /* Table - Matching app .data-table */
@@ -447,8 +454,13 @@
 
     .update-banner-preview .ui-button {
       margin: 0;
-      padding: var(--space-sm) var(--space-md);
-      font-size: var(--font-sm);
+      padding: 0;
+      font-size: var(--font-md);
+      border-bottom: 1px solid var(--color-primary);
+    }
+
+    .update-banner-preview .ui-button:hover {
+      font-weight: var(--weight-bold);
     }
 
     /* Notification badge */
