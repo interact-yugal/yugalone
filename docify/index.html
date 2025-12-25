@@ -32,7 +32,7 @@
       padding: 0; 
     }
 
-    /* scroll-behavior: smooth removed to prevent conflict with Lenis */
+    /* Note: scroll-behavior: smooth removed to prevent conflict with Lenis */
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -85,49 +85,27 @@
       height: 80px;
     }
 
-    /* Header with logo */
-    .header-branding {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
-
-    .app-logo-link {
-      display: inline-block;
-      line-height: 0;
-      text-decoration: none;
-      border-bottom: none;
-    }
-
-    .app-logo {
-      width: 100px;
-      height: auto;
-      flex-shrink: 0;
-    }
-
-    /* Primary links - bold on hover */
     a {
       color: #000000;
       text-decoration: none;
-      border-bottom: 1px solid #000000;
-      transition: font-weight 0.1s ease;
+      border-bottom: none;
+      font-weight: 700;
+      transition: opacity 0.15s ease;
     }
 
     a:hover {
-      font-weight: 700;
+      opacity: 0.6;
     }
 
-    /* Secondary links - opacity on hover */
     a.secondary {
       color: #000000;
       text-decoration: none;
-      border-bottom: 1px solid #000000;
+      border-bottom: none;
+      font-weight: 400;
     }
 
     a.secondary:hover {
       opacity: 0.6;
-      font-weight: 400;
     }
 
     ul {
@@ -210,7 +188,7 @@
   </main>
 
   <footer>
-    <a href="https://www.yugal.one" class="secondary">yugal.one</a>    
+    <a href="https://www.yugal.one">yugal.one</a>
     <a href="https://docs.google.com/document/d/1230FVosXVRG5b9chDaRqCXdjw5-Bp4z3LVOobeQ0JbI/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">Privacy Policy</a>
     <a href="https://docs.google.com/document/d/1FoKM3bYiE69-NXQnSjxdrma7dIQhUUqCyIKbtcYahw0/edit?usp=drive_link" class="secondary" target="_blank" rel="noopener">Terms of Service</a>
 
