@@ -34,15 +34,16 @@
 
     /* Note: scroll-behavior: smooth removed to prevent conflict with Lenis */
 
-    html,
     body {
-      height: 100%;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: #000000;
       background: #FFFFFF;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      padding: 60px 24px 80px;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     h1 {
@@ -71,7 +72,6 @@
     .header-branding {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 16px;
       margin-bottom: 12px;
     }
