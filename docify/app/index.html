@@ -7,8 +7,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
   <style>
@@ -18,24 +18,25 @@
       padding: 0; 
     }
 
-    body {
+    body, html {
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Prevents double scrollbars with iframe */
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #ffffff;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      color: #000000;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Main Iframe Styling */
-    iframe {
+    /* Standard Iframe View */
+    #app-frame {
       border: 0;
       width: 100%;
-      flex-grow: 1;
+      height: 100vh;
       display: block;
     }
 
-    /* iOS fallback screen - Matches landing page design */
+    /* iOS Fallback Screen - Matching Landing Page Style */
     #ios-warning {
       display: none;
       height: 100vh;
@@ -47,67 +48,51 @@
       background: #ffffff;
     }
 
-    .header-branding {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .app-logo {
+    .fallback-logo {
       width: 80px;
       height: auto;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      margin-bottom: 32px;
     }
 
     #ios-warning h2 {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
+      letter-spacing: -0.02em;
       margin-bottom: 16px;
-      letter-spacing: -0.01em;
     }
 
     #ios-warning p {
-      max-width: 400px;
       font-size: 16px;
       line-height: 1.6;
-      color: #000;
+      max-width: 400px;
+      color: #000000;
+      margin-bottom: 40px;
       font-weight: 400;
-      margin-bottom: 32px;
     }
 
-    /* Button Matching landing page 'Start Free' style */
+    /* Button Style matching index.html links but as a primary action */
     .btn {
-      background: #000;
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 4px; /* Slightly sharper to match minimalist vibe */
+      background: #000000;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 4px; /* Minimalist clean edge */
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 16px;
       transition: opacity 0.15s ease;
+      display: inline-block;
     }
 
     .btn:hover {
       opacity: 0.8;
     }
 
-    footer {
+    /* Small utility text for yugal.one branding */
+    .footer-note {
       position: absolute;
-      bottom: 40px;
+      bottom: 24px;
       font-size: 14px;
-    }
-
-    footer a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 400;
-      opacity: 0.6;
+      opacity: 0.5;
     }
   </style>
 </head>
@@ -120,17 +105,13 @@
   ></iframe>
 
   <div id="ios-warning">
-    <div class="header-branding">
-      <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Docify.svg" alt="Docify Logo" class="app-logo">
-      <div class="title">Docify</div>
-    </div>
-
-    <h2>Action Required</h2>
+    <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Docify.svg" alt="Docify Logo" class="fallback-logo">
+    
+    <h2>Continue to Docify</h2>
     <p>
-      Apple’s privacy restrictions prevent Docify from signing you in while
-      embedded. To continue, please open the app in a new tab.
+      Apple’s privacy restrictions prevent Docify from signing you in while embedded. Please open the app in a new tab to continue.
     </p>
-
+    
     <a
       href="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec"
       target="_blank"
@@ -140,25 +121,24 @@
       Open App
     </a>
 
-    <footer>
-      <a href="https://www.yugal.one">yugal.one</a>
-    </footer>
+    <div class="footer-note">yugal.one</div>
   </div>
 
   <script>
     const iframe = document.getElementById('app-frame');
     const warning = document.getElementById('ios-warning');
 
+    // Logic to detect iOS/iPadOS
     const isLikelyIOS =
       /iPad|iPhone|iPod/.test(navigator.userAgent) ||
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
     if (isLikelyIOS) {
-      // Shorter timeout for a snappier feel
+      // Allow a brief moment for potential cached login, otherwise switch to fallback
       const fallbackTimer = setTimeout(() => {
         iframe.style.display = 'none';
         warning.style.display = 'flex';
-      }, 1200);
+      }, 1500);
 
       iframe.onload = () => {
         clearTimeout(fallbackTimer);
