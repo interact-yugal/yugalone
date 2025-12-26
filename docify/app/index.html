@@ -15,8 +15,15 @@
     /* Lenis Smooth Scroll Essential CSS */
     html.lenis,
     html.lenis body {
-      height: 100%;
-      overflow: hidden; /* Prevent double scrollbars when app is active */
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
     }
 
     * { 
@@ -32,57 +39,18 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      /* Removed max-width and margin auto to prevent squeezing */
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* App Embedding Specific Styles - Set to Full Screen */
-    iframe {
-      border: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* iOS / iPadOS fallback Styling */
-    #ios-warning {
-      display: none;
-      height: 100vh;
-      padding: 60px 24px 80px;
-      background: #FFFFFF;
-      overflow-y: auto; /* Allow scrolling on the warning page if needed */
-    }
-
-    .warning-container {
-      max-width: 680px; /* Keep text readable on the warning screen */
-      margin: 0 auto;
-    }
-
-    .header-branding {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .app-logo-link {
-      display: inline-block;
-      line-height: 0;
-      text-decoration: none;
-    }
-
-    .app-logo {
-      width: 100px;
-      height: auto;
-      flex-shrink: 0;
-    }    
-
-    .title {
-      font-size: 28px;
-      font-weight: 800;
+      /* Width Fixes: Removed max-width and padding to prevent squeezing */
+      padding: 0;
+      max-width: 100%;
       margin: 0;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
     }
 
     h2 {
@@ -100,6 +68,38 @@
       margin-bottom: 16px;
     }
 
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .app-logo-link {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .app-logo {
+      width: 100px;
+      height: auto;
+      flex-shrink: 0;
+    }    
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
     .spacer {
       height: 80px;
     }
@@ -107,6 +107,7 @@
     a {
       color: #000000;
       text-decoration: none;
+      border-bottom: none;
       font-weight: 700;
       transition: opacity 0.15s ease;
     }
@@ -115,19 +116,84 @@
       opacity: 0.6;
     }
 
-    .launch-btn {
-      display: inline-block;
-      background: #000000;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      border-radius: 8px;
+    a.secondary {
+      color: #000000;
       text-decoration: none;
-      font-weight: 600;
+      border-bottom: none;
+      font-weight: 400;
     }
-    
-    .launch-btn:hover {
-      opacity: 0.9;
-      color: #FFFFFF;
+
+    a.secondary:hover {
+      opacity: 0.6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li:before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+
+    footer {
+      margin-top: 120px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    footer a {
+      margin-right: 16px;
+    }
+
+    /* App Embedding Specific Styles */
+    iframe {
+      border: 0;
+      width: 100vw; /* Updated to use full viewport width */
+      height: 100vh;
+      display: block;
+    }
+
+    #ios-warning {
+      display: none;
+      height: 100vh;
+      padding: 60px 24px 80px;
+      background: #FFFFFF;
+    }
+
+    .warning-container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    #ios-warning h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin: 60px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    #ios-warning p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    #ios-warning .header-branding {
+      margin-bottom: 48px;
     }
   </style>
 </head>
@@ -151,12 +217,11 @@
         Apple's privacy restrictions prevent Docify from signing you in while embedded here. Please open the app in full screen to continue.
       </p>
 
-      <div class="spacer"></div>
+    <div class="spacer"></div>
 
-      <p>
-        <a href="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec" target="_blank" rel="noopener" class="launch-btn">Open Docify</a>
-      </p>
-    </div>
+    <p>
+      <a href="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec" target="_blank" rel="noopener">Open Docify</a>
+    </p>
   </div>
 
   <script>
@@ -172,7 +237,7 @@
       // Give iframe a short chance to authenticate
       const fallbackTimer = setTimeout(() => {
         iframe.style.display = 'none';
-        warning.style.display = 'block';
+        warning.style.display = 'flex';
       }, 1500);
 
       iframe.onload = () => {
