@@ -1,69 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Docify</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docify - Document Automation</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
-    
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* CSS Variables - Matching Docify Theme */
+    :root {
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 12px;
+      --space-lg: 20px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+
+      /* Border Radius */
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+
+      /* Typography */
+      --font-sm: 12px;
+      --font-md: 14px;
+      --font-lg: 16px;
+      --font-xl: 20px;
+      --font-2xl: 24px;
+
+      --weight-normal: 400;
+      --weight-medium: 500;
+      --weight-semibold: 600;
+      --weight-bold: 700;
+
+      /* Line Heights */
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+
+      /* Icon Sizes */
+      --icon-md: 18px;
+      --icon-lg: 24px;
+
+      /* Theme Colors */
+      --color-bg: #FFFFFF;
+      --color-border: #E5E5E5;
+      --color-border-hover: #999999;
+
+      --color-text-primary: #000000;
+      --color-text-secondary: #666666;
+      --color-text-inverse: #FFFFFF;
+
+      --color-primary: #000000;
+      --color-primary-hover: #333333;
+
+      /* Opacity */
+      --opacity-hover: 0.6;
+      --opacity-overlay: 0.95;
+
+      /* Shadows */
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+
+      /* Transitions */
+      --transition-base: 200ms ease;
+
+      /* Z-Index */
+      --z-header: 1000;
+      --z-modal: 10000;
+
+      /* Letter Spacing */
+      --letter-spacing-tight: -0.02em;
+      --letter-spacing-normal: 0.01em;
+    }
+
+    /* Base Typography */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: var(--font-md);
+      line-height: var(--line-height-normal);
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* App Container */
+    .app-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Header */
+    .app-header {
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-lg) var(--space-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      position: sticky;
+      top: 0;
+      z-index: var(--z-header);
+    }
+
+    .app-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      text-decoration: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .app-logo:hover {
+      opacity: var(--opacity-hover);
+    }
+
+    .app-logo .material-symbols-rounded {
+      font-size: var(--icon-lg);
+      color: var(--color-text-primary);
+    }
+
+    .app-title {
+      font-size: var(--font-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+      font-size: var(--font-md);
+      font-weight: var(--weight-normal);
+      font-family: inherit;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: opacity var(--transition-base);
+      user-select: none;
+      letter-spacing: var(--letter-spacing-normal);
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    .btn .material-symbols-rounded {
+      font-size: var(--icon-md);
+    }
+
+    .btn-primary {
+      font-weight: var(--weight-bold);
+    }
+
+    .btn:hover {
+      opacity: var(--opacity-hover);
+    }
+
+    /* Main Content */
+    .app-content {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
     iframe {
       border: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       display: block;
     }
 
-    /* Message shown only when iframe compatibility is an issue */
+    /* iOS Warning */
     #ios-warning {
       display: none;
-      height: 100vh;
+      height: 100%;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #f5f5f5;
-      padding: 20px;
+      padding: var(--space-xl);
+      background: var(--color-bg);
     }
 
-    .btn {
-      background-color: #007bff;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 20px;
-      font-weight: 500;
+    #ios-warning .material-symbols-rounded {
+      font-size: 48px;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    #ios-warning h2 {
+      font-size: var(--font-2xl);
+      font-weight: var(--weight-bold);
+      margin-bottom: var(--space-md);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    #ios-warning p {
+      max-width: 420px;
+      font-size: var(--font-md);
+      line-height: var(--line-height-normal);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .warning-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .app-header {
+        padding: var(--space-lg);
+      }
+
+      .app-title {
+        font-size: var(--font-lg);
+      }
+
+      .btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--font-sm);
+      }
+
+      #ios-warning h2 {
+        font-size: var(--font-xl);
+      }
+
+      #ios-warning p {
+        font-size: var(--font-sm);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-header {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+      }
+
+      .header-actions {
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+
+      .btn-text {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <a href="#" class="app-logo">
+        <span class="material-symbols-rounded">description</span>
+        <h1 class="app-title">Docify</h1>
+      </a>
 
-  <iframe id="app-frame" src="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec"></iframe>
+      <div class="header-actions">
+        <a href="https://docs.google.com" target="_blank" class="btn">
+          <span class="material-symbols-rounded">help</span>
+          <span class="btn-text">Help</span>
+        </a>
+        <a href="https://workspace.google.com" target="_blank" class="btn btn-primary">
+          <span class="material-symbols-rounded">open_in_new</span>
+          <span class="btn-text">Open in Full</span>
+        </a>
+      </div>
+    </header>
 
-  <div id="ios-warning">
-    <h2>Apple Privacy Restriction Detected</h2>
-    <p>Your device settings prevent this app from signing you in while embedded here.</p>
-    <a href="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec" target="_blank" class="btn">
-      Open App in Full Screen
-    </a>
+    <!-- Main Content -->
+    <main class="app-content">
+      <iframe
+        id="app-iframe"
+        src="YOUR_WEBAPP_URL_HERE"
+        allow="clipboard-read; clipboard-write"
+        title="Docify Application"
+      ></iframe>
+
+      <!-- iOS Warning (shown only on iOS) -->
+      <div id="ios-warning">
+        <span class="material-symbols-rounded">warning</span>
+        <h2>iOS Not Supported</h2>
+        <p>
+          Docify requires desktop features not available on iOS devices. 
+          Please access this application from a desktop or Android device.
+        </p>
+        <div class="warning-actions">
+          <a href="mailto:support@yourapp.com" class="btn btn-primary">
+            <span class="material-symbols-rounded">email</span>
+            Contact Support
+          </a>
+        </div>
+      </div>
+    </main>
   </div>
 
   <script>
-    // Simple detection for iOS/iPadOS
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    // Detect iOS
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
 
-    // If it is iOS, we hide the iframe and show the button
-    // Alternatively, you can try to load the iframe and only show this if it fails,
-    // but detecting failure across domains is difficult due to security rules.
-    if (isIOS) {
-      document.getElementById('app-frame').style.display = 'none';
+    // Show iOS warning if on iOS device
+    if (isIOS()) {
+      document.getElementById('app-iframe').style.display = 'none';
       document.getElementById('ios-warning').style.display = 'flex';
     }
   </script>
-
 </body>
 </html>
