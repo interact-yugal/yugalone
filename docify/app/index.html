@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Docify | App</title>
+  <title>Docify</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <style>
     * { 
@@ -18,25 +18,24 @@
       padding: 0; 
     }
 
-    body, html {
+    html,
+    body {
       height: 100%;
-      width: 100%;
-      overflow: hidden; /* Prevents double scrollbars with iframe */
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #ffffff;
       color: #000000;
+      background: #FFFFFF;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Standard Iframe View */
-    #app-frame {
+    iframe {
       border: 0;
       width: 100%;
       height: 100vh;
       display: block;
     }
 
-    /* iOS Fallback Screen - Matching Landing Page Style */
+    /* iOS fallback screen */
     #ios-warning {
       display: none;
       height: 100vh;
@@ -44,97 +43,125 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 24px;
-      background: #ffffff;
+      padding: 60px 24px 80px;
+      background: #FFFFFF;
     }
 
-    .fallback-logo {
-      width: 80px;
+    .warning-container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .header-branding {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .app-logo-link {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .app-logo {
+      width: 100px;
       height: auto;
-      margin-bottom: 32px;
+      flex-shrink: 0;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
     }
 
     #ios-warning h2 {
       font-size: 24px;
       font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 24px;
       letter-spacing: -0.02em;
-      margin-bottom: 16px;
     }
 
     #ios-warning p {
       font-size: 16px;
-      line-height: 1.6;
-      max-width: 400px;
-      color: #000000;
-      margin-bottom: 40px;
       font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      color: #000000;
     }
 
-    /* Button Style matching index.html links but as a primary action */
     .btn {
-      background: #000000;
-      color: #ffffff;
-      padding: 14px 32px;
-      border-radius: 4px; /* Minimalist clean edge */
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      transition: opacity 0.15s ease;
       display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000000;
+      background: transparent;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
-      opacity: 0.8;
+      opacity: 0.6;
     }
 
-    /* Small utility text for yugal.one branding */
-    .footer-note {
-      position: absolute;
-      bottom: 24px;
-      font-size: 14px;
-      opacity: 0.5;
+    .spacer {
+      height: 80px;
     }
   </style>
 </head>
 <body>
 
+  <!-- Embedded App (works on desktop + Android) -->
   <iframe
     id="app-frame"
     src="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec"
     referrerpolicy="no-referrer"
   ></iframe>
 
+  <!-- iOS / iPadOS fallback -->
   <div id="ios-warning">
-    <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Docify.svg" alt="Docify Logo" class="fallback-logo">
-    
-    <h2>Continue to Docify</h2>
-    <p>
-      Apple’s privacy restrictions prevent Docify from signing you in while embedded. Please open the app in a new tab to continue.
-    </p>
-    
-    <a
-      href="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec"
-      target="_blank"
-      rel="noopener"
-      class="btn"
-    >
-      Open App
-    </a>
+    <div class="warning-container">
+      <div class="header-branding">
+        <a href="https://www.yugal.one/docify" class="app-logo-link">
+          <img src="https://raw.githubusercontent.com/interact-yugal/Branding/main/Docify.svg" alt="Docify Logo" class="app-logo">
+        </a>
+        <div class="title">Docify</div>
+      </div>
 
-    <div class="footer-note">yugal.one</div>
+      <h2>Open Docify</h2>
+      <p>
+        Apple's privacy restrictions prevent Docify from signing you in while embedded here. Please open the app in full screen to continue.
+      </p>
+      <a
+        href="https://script.google.com/macros/s/AKfycbxHepz76nBFuuLkKKABFyg1KaxBRCqopykVcS6bX0T4kLhd_Awbs-XGt80S0zbMHgq2cQ/exec"
+        target="_blank"
+        rel="noopener"
+        class="btn"
+      >
+        Open Docify
+      </a>
+    </div>
   </div>
 
   <script>
     const iframe = document.getElementById('app-frame');
     const warning = document.getElementById('ios-warning');
 
-    // Logic to detect iOS/iPadOS
+    // iPadOS detection (covers modern iPads reporting as Mac)
     const isLikelyIOS =
       /iPad|iPhone|iPod/.test(navigator.userAgent) ||
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
     if (isLikelyIOS) {
-      // Allow a brief moment for potential cached login, otherwise switch to fallback
+      // Give iframe a short chance to authenticate
       const fallbackTimer = setTimeout(() => {
         iframe.style.display = 'none';
         warning.style.display = 'flex';
