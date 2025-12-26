@@ -12,11 +12,27 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <style>
+    /* Lenis Smooth Scroll Essential CSS */
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
     * { 
       box-sizing: border-box; 
       margin: 0; 
       padding: 0; 
     }
+
+    /* Note: scroll-behavior: smooth removed to prevent conflict with Lenis */
 
     html,
     body {
@@ -24,10 +40,125 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: #000000;
       background: #FFFFFF;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin: 60px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .header-branding {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .app-logo-link {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .app-logo {
+      width: 100px;
+      height: auto;
+      flex-shrink: 0;
+    }    
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
+    .spacer {
+      height: 80px;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: none;
+      font-weight: 700;
+      transition: opacity 0.15s ease;
+    }
+
+    a:hover {
+      opacity: 0.6;
+    }
+
+    a.secondary {
+      color: #000000;
+      text-decoration: none;
+      border-bottom: none;
+      font-weight: 400;
+    }
+
+    a.secondary:hover {
+      opacity: 0.6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    li:before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+
+    footer {
+      margin-top: 120px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    footer a {
+      margin-right: 16px;
+    }
+
+    /* App Embedding Specific Styles */
     iframe {
       border: 0;
       width: 100%;
@@ -35,7 +166,6 @@
       display: block;
     }
 
-    /* iOS fallback screen */
     #ios-warning {
       display: none;
       height: 100vh;
@@ -50,33 +180,6 @@
     .warning-container {
       max-width: 680px;
       margin: 0 auto;
-    }
-
-    .header-branding {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .app-logo-link {
-      display: inline-block;
-      line-height: 0;
-      text-decoration: none;
-      border-bottom: none;
-    }
-
-    .app-logo {
-      width: 100px;
-      height: auto;
-      flex-shrink: 0;
-    }
-
-    .title {
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0;
     }
 
     #ios-warning h2 {
@@ -95,25 +198,8 @@
       color: #000000;
     }
 
-    .btn {
-      display: inline-block;
-      font-size: 16px;
-      font-weight: 700;
-      color: #000000;
-      background: transparent;
-      padding: 0;
-      border: none;
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      opacity: 0.6;
-    }
-
-    .spacer {
-      height: 80px;
+    #ios-warning .header-branding {
+      margin-bottom: 48px;
     }
   </style>
 </head>
@@ -135,8 +221,6 @@
         </a>
         <div class="title">Docify</div>
       </div>
-
-      <h2>Open Docify</h2>
       <p>
         Apple's privacy restrictions prevent Docify from signing you in while embedded here. Please open the app in full screen to continue.
       </p>
