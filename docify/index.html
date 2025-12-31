@@ -62,14 +62,6 @@
       letter-spacing: -0.01em;
     }
 
-    h3 {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.4;
-      margin: 32px 0 16px;
-      letter-spacing: -0.01em;
-    }
-
     p {
       font-size: 16px;
       font-weight: 400;
@@ -155,14 +147,6 @@
       position: absolute;
       left: 0;
     }
-    
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 4px;
-      border-radius: 4px;
-      font-size: 0.9em;
-      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    }
 
     footer {
       margin-top: 120px;
@@ -207,51 +191,17 @@
     <div class="spacer"></div>
 
     <h2>Core Capabilities</h2>
-
-    <h3>1. Advanced Workflow Management</h3>
     <ul>
-      <li><strong>Save & Load States:</strong> Persist complex configurations (sheet, template, settings) as named workflows for instant reuse.</li>
-      <li><strong>Collaborative Sharing:</strong> Share workflows with specific users via email; includes role-based access (Owners can modify/delete; Shared users can only load).</li>
-      <li><strong>Version Control:</strong> Automatic versioning of workflows with real-time update banners notifying users if the owner has updated the currently loaded workflow.</li>
-      <li><strong>Multi-Tenancy Storage:</strong> Secure, user-specific storage of workflow indexes and data.</li>
-    </ul>
-
-    <h3>2. Data Intelligence & Control</h3>
-    <ul>
-      <li><strong>Seamless Integration:</strong> Native Google Picker integration for secure selection of Google Sheets and Drive Folders.</li>
-      <li><strong>Data Hygiene Tools:</strong> Built-in utilities to clean data sources by removing duplicate rows, blank rows, and blank columns before processing.</li>
-      <li><strong>Granular Record Selection:</strong> Search, filter, and select specific records in real-time, or use the detailed "Card View" to inspect individual record data.</li>
-    </ul>
-
-    <h3>3. Smart Template Engine</h3>
-    <ul>
-      <li><strong>Template Analysis:</strong> Automatically scans templates to calculate complexity, character count, and estimated pages.</li>
-      <li><strong>Dynamic Limits:</strong> Recommends "Safe Record Limits" (e.g., max records per batch) based on template complexity to prevent timeouts.</li>
-      <li><strong>Auto-Generator:</strong> One-click creation of a new Google Docs template populated with placeholders derived directly from the selected Sheet headers.</li>
-      <li><strong>Flexible Syntax:</strong> Supports placeholder formats like <code>&lt;&lt;[Field Name]&gt;&gt;</code> or <code>&lt;&lt;FieldName&gt;&gt;</code>.</li>
-    </ul>
-
-    <h3>4. Flexible Document Generation</h3>
-    <ul>
-      <li><strong>Dual Structures:</strong> Choose between "Individual Files" for separate documents per record or "Single File" to merge all records into one continuous document.</li>
-      <li><strong>Multi-Format Output:</strong> Generate as Google Docs, PDF, or Docs + PDF.</li>
-      <li><strong>PDF Engine:</strong> Uses Advanced Drive Service (v3) for high-fidelity PDF conversion with a "Trash Original" option to keep folders clean.</li>
-      <li><strong>Dynamic Naming:</strong> Custom file naming patterns using placeholders (e.g., Invoice - <code>&lt;&lt;[ClientName]&gt;&gt;</code>).</li>
-    </ul>
-
-    <h3>5. Performance & Reliability</h3>
-    <ul>
-      <li><strong>Quota Management:</strong> Automatically detects account type (Gmail vs. Google Workspace) and applies appropriate daily processing limits.</li>
-      <li><strong>Rate Limiting:</strong> Intelligent batch processing with delays to prevent Google API "Too Many Requests" errors.</li>
-      <li><strong>Execution Safety:</strong> Monitors execution time and safely stops processing before script timeouts occur.</li>
-      <li><strong>Robust Error Handling:</strong> Detailed error logging and user-friendly notifications for permissions or access issues.</li>
-    </ul>
-
-    <h3>6. Modern User Experience</h3>
-    <ul>
-      <li><strong>Smooth Interface:</strong> Implements Lenis for smooth scrolling and a polished, tabbed UI layout.</li>
-      <li><strong>Keyboard Accessibility:</strong> Full keyboard support for navigation, including shortcuts for closing modals (Esc), confirming actions (Enter), and deleting workflows (Delete).</li>
-      <li><strong>Interactive Feedback:</strong> Loading overlays, success/error toast notifications, and complexity rating indicators for templates.</li>
+      <li>Workflows engine: Build, save, and share automated workflows with controlled access and update notifications.</li>
+      <li>Data source integration: Maintain a live link to Google Sheets to process spreadsheet records in real-time.</li>
+      <li>Data cleaning: Strip away blank rows and duplicate entries to ensure high-quality document outputs.</li>
+      <li>Advanced search: Isolate relevant data across thousands of records using a fast, responsive search layer.</li>
+      <li>Detail view: Transition instantly from in-line table view to detail view for focused record inspection with dedicated navigation controls.</li>
+      <li>Grouped selection logic: Select specific data subsets through intuitive bulk-actions or manual checkbox controls.</li>
+      <li>One-click templates: Initialize a mapped Google Doc instantly by bridging data source fields to document placeholders.</li>
+      <li>Flexible output: Create Docs, PDFs, or both—organized in Google Drive with traceable Log IDs.</li>
+      <li>Document processing: Process hundreds of records simultaneously with real-time progress and success feedback.</li>
+      <li>Minimalist UX: Navigate a clean interface enhanced with keyboard listeners for power users.</li>
     </ul>
 
     <div class="spacer"></div>
