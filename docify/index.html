@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Symbols for Checkmarks -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/interact-yugal/yugalone/main/docify/branding/Docify-48px.png">
 
@@ -32,8 +34,6 @@
       padding: 0; 
     }
 
-    /* Note: scroll-behavior: smooth removed to prevent conflict with Lenis */
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: #000000;
@@ -42,7 +42,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       padding: 60px 24px 80px;
-      max-width: 680px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -67,6 +67,7 @@
       font-weight: 400;
       line-height: 1.7;
       margin-bottom: 16px;
+      max-width: 680px;
     }
 
     .header-branding {
@@ -128,30 +129,128 @@
       opacity: 0.6;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0;
+    /* --- Pricing Table Styles --- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+      align-items: start;
     }
 
-    li {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 12px;
-      padding-left: 20px;
+    .pricing-card {
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .pricing-card.paid {
+      border: 1px solid #000000;
       position: relative;
     }
 
-    li:before {
-      content: "-";
+    .plan-name {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .plan-period {
+      font-size: 14px;
+      font-weight: 400;
+      color: #666;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+    }
+
+    .feature-item {
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      padding-left: 28px;
+      position: relative;
+      color: #333;
+    }
+
+    .feature-item .material-symbols-rounded {
       position: absolute;
       left: 0;
+      top: 3px; /* Slightly adjusted alignment for longer text */
+      font-size: 18px;
+      color: #000;
+    }
+
+    .feature-item strong {
+      font-weight: 600;
+      color: #000;
+    }
+    
+    .includes-header {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: block;
+      border-bottom: 1px solid #E5E5E5;
+      padding-bottom: 8px;
+    }
+
+    .btn-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      background: #000;
+      color: #fff;
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    .btn-block:hover {
+      opacity: 0.8;
+      color: #fff;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: #000;
+      border: 1px solid #E5E5E5;
+    }
+    
+    .btn-outline:hover {
+      border-color: #000;
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     footer {
       margin-top: 120px;
       font-size: 14px;
       font-weight: 400;
+      max-width: 680px; 
     }
 
     footer a {
@@ -178,36 +277,101 @@
     </p>
 
     <p>
-      Connect your data source, selection logic, and a Google Docs template into a repeatable workflow to generate high-fidelity documents in bulk. Save workflows, share with your team, create documents-all within Google Workspace.
+      Connect your data source, selection logic, and a Google Docs template into a repeatable workflow to generate high-fidelity documents in bulk. Save workflows, share with your team, create documents—all within Google Workspace.
     </p>
 
     <div class="spacer"></div>
 
-    <p>
-      <a href="https://script.google.com/macros/s/AKfycbzN00HH7JEa5FrpDqvTZlfBpDP9Mt9KOwCimDVMyCcHUD49dxJlRyghVqfvOakX8AtG/exec" target="_blank" rel="noopener">Start Free</a>
-      <!-- <a href="https://www.yugal.one/docify/how-it-works" class="secondary">How it Works?</a> -->
-    </p>
+    <h2>Capabilities & Licensing</h2>
+    
+    <div class="pricing-grid">
+      <!-- Free Plan -->
+      <div class="pricing-card">
+        <div>
+          <div class="plan-name">Free</div>
+          <div class="plan-price">₹0</div>
+          
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Google Sheets integration:</strong> Maintain a live link to Google Sheets to process spreadsheet records in real-time.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Data cleaning:</strong> Strip away blank rows and duplicate entries to ensure high-quality document outputs.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Smart template analysis:</strong> Get safe limit recommendations based on template complexity, character count, and estimated pages to prevent timeouts.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Rich media placeholders:</strong> Go beyond simple text with advanced tags to dynamically insert images (with custom width/height) and hyperlinks directly from your data source.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Advanced search:</strong> Isolate relevant data across thousands of records using a fast, responsive search layer.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Dual views:</strong> Transition instantly between table and detail views with dedicated navigation, and toggle between default and full-page modes for focused record inspection.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Grouped selection logic:</strong> Select specific data subsets through intuitive bulk-actions or manual checkbox controls.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>One-click templates:</strong> Initialize a mapped Google Doc instantly by bridging data source fields to document placeholders.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Dual structures:</strong> Choose between "Individual Files" for separate documents per record or "Single File" to merge all records into one continuous document.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Multi-format Export:</strong> Export documents in the format that suits you best—supporting Google Docs, PDF, Microsoft Word (.docx), EPUB, Markdown, HTML, and more.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Batch processing:</strong> Intelligently processes large record sets in batches with rate-limiting pauses to ensure stability and compliance with Google's API limits.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Privacy-first architecture:</strong> Operates using restricted scopes, ensuring the app only accesses files it creates or is explicitly given access to.
+            </li>
+          </ul>
+        </div>
+        <a href="https://script.google.com/macros/s/AKfycbzN00HH7JEa5FrpDqvTZlfBpDP9Mt9KOwCimDVMyCcHUD49dxJlRyghVqfvOakX8AtG/exec" target="_blank" class="btn-block btn-outline">Start Free</a>
+      </div>
 
-    <div class="spacer"></div>
+      <!-- Paid Plan -->
+      <div class="pricing-card paid">
+        <div>
+          <div class="plan-name">Paid License</div>
+          <div class="plan-price">₹99 <span class="plan-period">/ month</span></div>
+          <div style="font-size: 14px; color: #666; margin-top: -20px; margin-bottom: 24px;">or ₹999 annually</div>
 
-    <h2>Core Capabilities</h2>
-    <ul>
-      <li>Workflows engine: Build, save, and share automated document workflows backed by a robust Firebase database.</li>
-      <li>Collaborative sharing: Share workflows with controlled access and real-time update notifications using version control.</li>
-      <li>Google Forms integration with automated emails: Seamlessly connect Google Forms to workflows to automatically generate documents and instantly email the form response to the respondent upon form submission.</li>
-      <li>Google Sheets integration: Maintain a live link to Google Sheets to process spreadsheet records in real-time.</li>
-      <li>Data cleaning: Strip away blank rows and duplicate entries to ensure high-quality document outputs.</li>
-      <li>Advanced search: Isolate relevant data across thousands of records using a fast, responsive search layer.</li>
-      <li>Dual views: Transition instantly between table and detail views with dedicated navigation, and toggle between default and full-page modes for focused record inspection.</li>
-      <li>Grouped selection logic: Select specific data subsets through intuitive bulk-actions or manual checkbox controls.</li>
-      <li>Smart template analysis: Get safe limit recommendations based on template complexity, character count, and estimated pages to prevent timeouts.</li>
-      <li>Rich media placeholders: Go beyond simple text with advanced tags to dynamically insert images (with custom width/height) and hyperlinks directly from your data source.</li>  
-      <li>One-click templates: Initialize a mapped Google Doc instantly by bridging data source fields to document placeholders.</li>
-      <li>Dual structures: Choose between "Individual Files" for separate documents per record or "Single File" to merge all records into one continuous document.</li>      
-      <li>Multi-format Export: Export documents in the format that suits you best—supporting Google Docs, PDF, Microsoft Word (.docx), EPUB, Markdown, HTML, and more.</li>
-      <li>Batch processing: Intelligently processes large record sets in batches with rate-limiting pauses to ensure stability and compliance with Google's API limits</li>
-      <li>Privacy-first architecture: Operates using restricted scopes, ensuring the app only accesses files it creates or is explicitly given access to.</li>
-    </ul>
+          <span class="includes-header">Everything in Free, plus:</span>
+          
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Workflows engine:</strong> Build, save, and share automated document workflows backed by a robust Firebase database.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Collaborative sharing:</strong> Share workflows with controlled access and real-time update notifications using version control.
+            </li>
+            <li class="feature-item">
+              <span class="material-symbols-rounded">check</span>
+              <strong>Google Forms integration with automated emails:</strong> Seamlessly connect Google Forms to workflows to automatically generate documents and instantly email the form response to the respondent upon form submission.
+            </li>
+          </ul>
+        </div>
+        <a href="https://script.google.com/macros/s/AKfycbzN00HH7JEa5FrpDqvTZlfBpDP9Mt9KOwCimDVMyCcHUD49dxJlRyghVqfvOakX8AtG/exec" target="_blank" class="btn-block">Get License</a>
+      </div>
+    </div>
 
     <div class="spacer"></div>
 
